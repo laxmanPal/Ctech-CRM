@@ -1,0 +1,298 @@
+<%- include("../includes/head.ejs") %> <%- include("../includes/header.ejs") %>
+<%- include("../includes/sidebar.ejs") %>
+<div class="contents">
+  <div class="demo2 mb-25 t-thead-bg">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-main">
+            <h4 class="text-capitalize breadcrumb-title">Dashboard</h4>
+            <div class="breadcrumb-action justify-content-center flex-wrap">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item">
+                    <a href="#"><i class="uil uil-estate"></i>Dashboard</a>
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-sm-6 col-ssm-12 mb-25">
+          <div
+            class="ap-po-details ap-po-details--luodcy overview-card-shape radius-xl d-flex justify-content-between"
+          >
+            <div
+              class="ap-po-details-content d-flex flex-wrap justify-content-between w-100"
+            >
+              <div class="ap-po-details__titlebar">
+                <p>Total Domain's</p>
+                <h1><%= totalDomains %></h1>
+                <div class="ap-po-details-time">
+                  <span class="color-success"
+                    ><i class="las la-arrow-up"></i>
+                    <strong>25.36%</strong></span
+                  >
+                  <small>Since last month</small>
+                </div>
+              </div>
+              <div class="ap-po-details__icon-area color-primary">
+                <i class="uil uil-globe"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-sm-6 col-ssm-12 mb-25">
+          <div
+            class="ap-po-details ap-po-details--luodcy overview-card-shape radius-xl d-flex justify-content-between"
+          >
+            <div
+              class="ap-po-details-content d-flex flex-wrap justify-content-between w-100"
+            >
+              <div class="ap-po-details__titlebar">
+                <p>Domain Expire</p>
+                <h1> <%= expiredDomain %> </h1>
+                <div class="ap-po-details-time">
+                  <span class="color-success"
+                    ><i class="las la-arrow-up"></i>
+                    <strong>25.36%</strong></span
+                  >
+                  <small>Since last month</small>
+                </div>
+              </div>
+              <div class="ap-po-details__icon-area color-secondary">
+                <i class="uil uil-expand-arrows-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-sm-6 col-ssm-12 mb-25">
+          <div
+            class="ap-po-details ap-po-details--luodcy overview-card-shape radius-xl d-flex justify-content-between"
+          >
+            <div
+              class="ap-po-details-content d-flex flex-wrap justify-content-between w-100"
+            >
+              <div class="ap-po-details__titlebar">
+                <p>Users</p>
+                <h1><%= totalCust %></h1>
+                <div class="ap-po-details-time">
+                  <span class="color-danger"
+                    ><i class="las la-arrow-down"></i>
+                    <strong>25.36%</strong></span
+                  >
+                  <small>Since last month</small>
+                </div>
+              </div>
+              <div class="ap-po-details__icon-area color-success">
+                <i class="uil uil-users-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-sm-6 col-ssm-12 mb-25">
+          <div
+            class="ap-po-details ap-po-details--luodcy overview-card-shape radius-xl d-flex justify-content-between"
+          >
+            <div
+              class="ap-po-details-content d-flex flex-wrap justify-content-between w-100"
+            >
+              <div class="ap-po-details__titlebar">
+                <p>Pending Amount</p>
+                <h1>30,825</h1>
+                <div class="ap-po-details-time">
+                  <span class="color-success"
+                    ><i class="las la-arrow-up"></i>
+                    <strong>25.36%</strong></span
+                  >
+                  <small>Since last month</small>
+                </div>
+              </div>
+              <div class="ap-po-details__icon-area color-info">
+                <i class="uil uil-rupee-sign"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xxl-6 col-lg-12 mb-30">
+          <div class="support-ticket-system support-ticket-system--search">
+            <div
+              class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between"
+            >
+              <div
+                class="d-flex flex-wrap justify-content-center breadcrumb-main__wrapper"
+              >
+                <div
+                  class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20"
+                >
+                  <h4 class="text-capitalize fw-500 breadcrumb-title">
+                    Domains
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1"
+            >
+              <div class="table-responsive">
+                <table class="table mb-0 table-borderless">
+                  <thead>
+                    <tr class="userDatatable-header">
+                      <th>
+                        <span class="userDatatable-title">Sr No</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Name</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Days Left</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Status</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Expire Date</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% let srNo = 1; %>
+                    <% for(var i=0; i<domains.length; i++) { %>
+                      <% const days = Math.floor((new Date(domains[i].expire_date).getTime() - new Date().getTime()) / (1000*60*60*24)) %>
+                    <tr>
+                      <td>
+                        <div class="userDatatable-content">
+                          <%= srNo++ %>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="d-flex">
+                          <div class="userDatatable-inline-title">
+                            <h6><%= console.log(domains[i])  %></h6>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <div class="userDatatable-inline-title">
+                            <h6> <%= days  %> </h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content d-inline-block">
+
+                           <span
+                          class="bg-opacity-<%= days>0 ? "success" : "danger" %> color-<%= days>0 ? "success" : "danger" %> userDatatable-content-status active"
+                          >
+                          <%= days>0 ? "active" : "expired" %>
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--priority">
+                          <%= domains[i].expire_date.toLocaleDateString() %>
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-6 col-lg-12 mb-30">
+          <div class="support-ticket-system support-ticket-system--search">
+            <div
+              class="breadcrumb-main m-0 breadcrumb-main--table justify-content-sm-between"
+            >
+              <div
+                class="d-flex flex-wrap justify-content-center breadcrumb-main__wrapper"
+              >
+                <div
+                  class="d-flex align-items-center ticket__title justify-content-center me-md-25 mb-md-0 mb-20"
+                >
+                  <h4 class="text-capitalize fw-500 breadcrumb-title">
+                    Hosting
+                  </h4>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1"
+            >
+              <div class="table-responsive">
+                <table class="table mb-0 table-borderless">
+                  <thead>
+                    <tr class="userDatatable-header">
+                      <th>
+                        <span class="userDatatable-title">Sr No</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Name</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Days Left</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Status</span>
+                      </th>
+                      <th>
+                        <span class="userDatatable-title">Expire Date</span>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(let hosting of hostings){ %>
+                      <% const days = Math.floor((new Date(hosting.expire_date).getTime() - new Date().getTime()) / (1000*60*60*24)) %>
+                    <tr>
+                      <td>#01</td>
+                      <td>
+                        <div class="d-flex">
+                          <div class="userDatatable-inline-title">
+                            <h6><%= hosting.customer.name %></h6>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>
+                        <div class="d-flex">
+                          <div class="userDatatable-inline-title">
+                            <h6> <%= days  %> </h6>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content d-inline-block">
+
+                           <span
+                          class="bg-opacity-<%= days>=0 ? "success" : "danger" %> color-<%= days>=0 ? "success" : "danger" %> userDatatable-content-status active"
+                          >
+                          <%= days>0 ? "active" : "expired" %>
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="userDatatable-content--priority">
+                          <%= hosting.expire_date.toLocaleDateString() %>
+                        </div>
+                      </td>
+                    </tr>
+                    <% } %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("../includes/footer.ejs") %>

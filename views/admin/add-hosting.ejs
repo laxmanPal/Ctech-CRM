@@ -1,0 +1,184 @@
+<%- include("../includes/head.ejs") %>
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/sidebar.ejs") %>
+<div class="contents">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-main">
+          <h4 class="text-capitalize breadcrumb-title">Form Layouts</h4>
+          <div class="breadcrumb-action justify-content-center flex-wrap">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#"><i class="uil uil-estate"></i>Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  form layouts
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-Vertical card-default card-md mb-4">
+          <div class="card-header">
+            <h6>Multiple Column</h6>
+          </div>
+          <div class="card-body py-md-30">
+            <form action="/admin/add-hosting" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-25">
+                  <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Customer Name</label>
+                    <select class="form-control px-15 " id="exampleFormControlSelect1" name="cust_name">
+                    <option value="0" >Select Customer Name</option>
+                    <% if(customers.length){
+                      for(var i = 0; i< customers.length; i++) {%> 
+                      <option value="<%= customers[i].id%>">
+                      <%= customers[i].name%>
+                      </option>
+                      <% } } %>
+                    </select>
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Hosting Name</label>
+                  <input
+                    type="text"
+                    name="hosting_name"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Hosting Name"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Hosting Login ID</label>
+                    <input
+                      type="text"
+                      name="login_id"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      placeholder="Hosting Login ID"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Password</label>
+                    <div class="position-relative">
+                      <input
+                        id="password-field"
+                        type="password"
+                        class="form-control  ih-medium ip-gray radius-xs b-light px-15"
+                        name="password"
+                        placeholder="Password"
+                      />
+                      <div
+                        class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"
+                      ></div>
+                    </div>
+                    </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Registration Date</label>
+                    <input
+                      type="text"
+                      name="reg_date"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      id="datepicker7"
+                      placeholder="Registration Date"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Expire Date</label>
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        name="exp_date"
+                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                        id="datepicker8"
+                        placeholder="Expire Date"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Remark</label>
+                    <input
+                      type="text"
+                      name="remark"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      placeholder="Remark"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Renewal Amount</label>
+                    <input
+                      type="number"
+                      name="renew_amt"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      placeholder="Renewal Amount"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Hosting Provider</label>
+                      <select class="form-control px-15 " id="exampleFormControlSelect1" name="hosting_provider">
+                      <option value="0" >Select Hosting Provider</option>
+                      <% if(providers.length){
+                        for(var i = 0; i< providers.length; i++) {%> 
+                        <option value="<%= providers[i].id%>">
+                        <%= providers[i].hosting_provider_name%>
+                        </option>
+                        <% } } %>
+                      </select>
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Pin</label>
+                    <input
+                      type="number"
+                      name="pin"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      placeholder="Pin"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Hosting Booked From</label>
+                    <input
+                      type="text"
+                      name="book_from"
+                      class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                      placeholder="Hosting Booked From"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Status</label>
+                      <select class="form-control px-15 " id="exampleFormControlSelect1" name="status">
+                      <option value="0">Status</option>
+                      <option value="1">Pending</option>
+                      <option value="2">Payment Received</option>
+                      <option value="3">Free</option>
+                      <option value="4">Not interested</option>
+                      <option value="5">Payment on Hold</option>
+                      <option value="6">Not interested</option>
+                      </select>
+                  </div>
+                <div class="col-md-6">
+                  <div class="layout-button mt-0">
+                    <button
+                      type="button"
+                      class="btn btn-default btn-squared btn-light px-20"
+                    >
+                      cancel
+                    </button>
+                    <button
+                      class="btn btn-primary btn-default btn-squared px-30"
+                    >
+                      save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("../includes/footer.ejs") %>

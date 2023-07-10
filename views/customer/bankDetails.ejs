@@ -1,0 +1,211 @@
+<%- include("../includes/head.ejs") %> <%- include("../includes/header.ejs") %>
+<%- include("../includes/sidebar.ejs") %>
+<div class="contents">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="breadcrumb-main">
+          <h4 class="text-capitalize breadcrumb-title">Add Bank Details</h4>
+          <div class="breadcrumb-action justify-content-center flex-wrap">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#"><i class="uil uil-estate"></i>Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Add Bank Details
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-Vertical card-default card-md mb-4">
+          <div class="card-body py-md-30">
+            <form action="/customer/add-bankDetails" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Bank Name</label
+                  >
+                  <input
+                    type="text"
+                    name="bankName"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Bank Name"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Account Number
+                  </label>
+                  <input
+                    type="number"
+                    name="accNum"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder=" Enter Account Number"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >IFSC Code</label
+                  >
+                  <input
+                    type="text"
+                    name="ifsc"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter IFSC Code"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Paytm Number</label
+                  >
+                  <input
+                    type="text"
+                    name="paytm"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Paytm Number"
+                  />
+                </div>
+              
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >GooglePay Number
+                  </label>
+                  <input
+                    type="text"
+                    name="gPay"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter GooglePay Number"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >PhonePay Number
+                  </label>
+                  <input
+                    type="text"
+                    name="phonePay"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter PhonePay Number"
+                  />
+                </div>
+               
+                <div class="col-md-6 mt-25">
+                  <div class="layout-button mt-0">
+                    <button
+                      type="button"
+                      class="btn btn-default btn-squared btn-light px-20"
+                    >
+                      cancel
+                    </button>
+                    <button
+                      class="btn btn-primary btn-default btn-squared px-30"
+                    >
+                      save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% if(bankDetails) { %>
+    <div class="row">
+      <div class="col-lg-12">
+        <div
+          class="userDatatable global-shadow border-light-0 p-30 bg-white radius-xl w-100 mb-30"
+        >
+          <div class="table-responsive">
+          
+            <table id="datatables" class="table mb-0 table-borderless">
+              <thead>
+                <tr class="userDatatable-header">
+                  <th>
+                    <span class="userDatatable-title">Sr No</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">Bank Name</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">Acc Number</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">IFSC Code</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">Paytm Number</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">GooglePay Number</span>
+                  </th>
+                  <th>
+                    <span class="userDatatable-title">PhonePay Number</span>
+                  </th>
+                </tr>
+              </thead>
+             
+              <tbody>
+                <% let srNo = 1; %>
+                <tr>
+                  <td>
+                    <div class="userDatatable-content">
+                      <%= srNo++ %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDatatable-content">
+                     <%= bankDetails.bankName %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDatatable-content">
+                     <%= bankDetails.accNum  %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDatatable-content">
+                      <%= bankDetails.ifsc %>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="userDatatable-content"><%= bankDetails.paytm  %></div>
+                  </td>
+                  <td>
+                    <div class="userDatatable-content">
+                      <%= bankDetails.gPay %>
+                    </div>
+                  </td>
+                  <td>
+                      <div class="userDatatable-content d-inline-block">
+                        <%=  bankDetails.phonePay %>
+                      </div>
+                    </td>
+                </tr>
+              </tbody>
+            
+            </table>
+          
+          </div>
+         
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+<%- include("../includes/footer.ejs") %>

@@ -1,0 +1,121 @@
+<%- include("../includes/head.ejs") %>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap4.min.css">
+<%- include("../includes/header.ejs") %>
+<%- include("../includes/sidebar.ejs") %>
+<div class="contents">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div
+            class="breadcrumb-main user-member justify-content-sm-between"
+          >
+            <div
+              class="d-flex flex-wrap justify-content-center breadcrumb-main__wrapper"
+            >
+              <div
+                class="d-flex align-items-center user-member__title justify-content-center me-sm-25"
+              >
+                <h4 class="text-capitalize fw-500 breadcrumb-title">
+                  Services list
+                </h4>
+                <span class="sub-title ms-sm-25 ps-sm-25">Home</span>
+              </div>
+              <form
+                action="https://demo.dashboardmarket.com/"
+                class="d-flex align-items-center user-member__form my-sm-0 my-2"
+              >
+                <img src="img/svg/search.svg" alt="search" class="svg" />
+                <input
+                  class="form-control me-sm-2 border-0 box-shadow-none"
+                  type="search"
+                  placeholder="Search by Name"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+            <div class="action-btn">
+              <a id="add_service"
+                class="btn px-15 btn-primary"
+              >
+              <i class="uil uil-plus"></i>Add Service</a
+              >
+            </div>
+          </div>
+          <div id="add_service_form" style="display: none;" class="col-md-6 mb-25">
+            <form action="/admin/add-services" method="post">
+              <input type="text" name="service_name" class="form-control ih-medium ip-gray radius-xs b-light px-15" placeholder="Service Name">
+              <div class="col-md-6">
+                <div class="layout-button mt-0">
+                  <button id="cancel" type="button" class="btn border border-dark btn-default btn-squared btn-light px-20">
+                    cancel
+                  </button>
+                  <button class="btn btn-primary btn-default btn-squared px-30">
+                    save
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div
+            class="userDatatable global-shadow border-light-0 p-30 bg-white radius-xl w-100 mb-30"
+          >
+            <div class="table-responsive">
+              <table id="datatables" class="table mb-0 table-borderless">
+                <thead>
+                  <tr class="userDatatable-header">
+                    <th>
+                      <span class="userDatatable-title">Sr No</span>
+                    </th>
+                    <th>
+                      <span class="userDatatable-title">	Service Name</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% let srNo = 1; %>
+                 <% for (let service of services ) { %>
+                  <tr>
+                    <td>
+                      <div class="userDatatable-content">
+                        <%= srNo++ %>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="userDatatable-content">
+                        <%= service.service_name %>
+                      </div>
+                    </td>
+                  </tr>
+                  <% } %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- include("../includes/footer.ejs") %>
+  <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap4.min.js"></script>
+  <script>
+$(document).ready(function () {
+    $('#datatables').DataTable();
+});
+
+const add_service_form = document.getElementById("add_service_form")
+const cancel = document.getElementById("cancel")
+
+document.getElementById("add_service").addEventListener("click" , function () {
+  add_service_form.style.display = "block"
+})
+
+cancel.addEventListener("click" , function(){
+  add_service_form.style.display = "none"
+})
+
+  </script>

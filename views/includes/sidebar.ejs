@@ -1,0 +1,154 @@
+<div class="sidebar-wrapper">
+  <div class="sidebar sidebar-collapse" id="sidebar">
+    <div class="sidebar__menu-group">
+      <% if (isAdmin) { %>
+      <ul class="sidebar_nav">
+        <li class="">
+          <a href="/admin/" class="<%= path==='/admin/' && 'active' %>">
+            <span class="nav-icon uil uil-create-dashboard"></span>
+            <span class="menu-text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a
+            href="/admin/customers"
+            class="<%= path==='/admin/customers' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-users-alt"></span>
+            <span class="menu-text">Customers</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/domains"
+            class="<%= path==='/admin/domains' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-globe"></span>
+            <span class="menu-text">Domains</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a
+            href="/admin/host-providers"
+            class="<%= path==='/admin/host-providers' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-user-md"></span>
+            <span class="menu-text">Host Providers</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/services"
+            class="<%= path==='/admin/services' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-server"></span>
+            <span class="menu-text">Services</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/report"
+            class="<%= path==='/admin/report' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-analytics"></span>
+            <span class="menu-text">Report</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/transaction"
+            class="<%= path==='/admin/transaction' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-transaction"></span>
+            <span class="menu-text">Transaction</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/quotation"
+            class="<%= path==='/admin/quotation' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-file-exclamation-alt"></span>
+            <span class="menu-text">Quotation</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/admin/invoice"
+            class="<%= path==='/admin/invoice' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-clipboard-alt"></span>
+            <span class="menu-text">Invoice</span>
+          </a>
+        </li>
+      </ul>
+      <% } else { %>
+      <ul class="sidebar_nav">
+        <li class="">
+          <a href="/customer/" class="<%= path==='/customer/' && 'active' %>">
+            <span class="nav-icon uil uil-create-dashboard"></span>
+            <span class="menu-text">Dashboard</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a
+            href="/customer/myTransaction"
+            class="<%= path==='customer/myTransaction' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-transaction"></span>
+            <span class="menu-text">Transactions</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/customer/myQuotations"
+            class="<%= path==='customer/myQuotations' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-clipboard-alt"></span>
+            <span class="menu-text">Quotation</span>
+          </a>
+        </li>
+
+        <li class="">
+          <a
+            href="/customer/myInvoice"
+            class="<%= path==='customer/myInvoice' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-receipt"></span>
+            <span class="menu-text">Invoice</span>
+          </a>
+        </li>
+        <li class="">
+          <a
+            href="/customer/moneyReceipt"
+            class="<%= path==='customer/moneyReceipt' && 'active' %>"
+          >
+            <span class="nav-icon uil uil-bill"></span>
+            <span class="menu-text">Money Receipt</span>
+          </a>
+        </li>
+        <li class="has-child">
+          <a href="#" class="">
+            <span class="nav-icon uil uil-setting"></span>
+            <span class="menu-text">Setting</span>
+            <span class="toggle-icon">
+              <i class="fs-4 uil uil-angle-down"></i>
+            </span>
+          </a>
+          <ul style="display: none; top: 338.484px; left: 214px">
+            <li class="">
+              <a href="/customer/generalSettings">General Settings</a>
+            </li>
+            <li class="">
+              <a href="/customer/bankDetails">Bank Details</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <% } %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,451 @@
+<%- include("../includes/head.ejs") %> <%- include("../includes/header.ejs") %>
+<%- include("../includes/sidebar.ejs") %>
+<div class="contents">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <% if (errors) { %>
+          <div class=" alert alert-danger  alert-dismissible fade show  mt-4" role="alert">
+            <div class="alert-content">
+              <p> <%= errors %> </p>
+              <button type="button" class="btn-close text-capitalize" data-bs-dismiss="alert" aria-label="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="svg replaced-svg">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <% } %>
+        <div class="breadcrumb-main">
+          <h4 class="text-capitalize breadcrumb-title">Add New Quotation</h4>
+          <div class="breadcrumb-action justify-content-center flex-wrap">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a href="#"><i class="uil uil-estate"></i>Home</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Add New Quotation
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card card-Vertical card-default card-md mb-4">
+          <div class="card-body py-md-30">
+            <form action="/customer/add-invoice" method="post">
+              <div class="row">
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Client Name</label
+                  >
+                  <input
+                    type="text"
+                    name="client_name"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Client Name"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Mobile No.
+                  </label>
+                  <input
+                    type="number"
+                    name="client_mobile"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Mobile Number"
+                  />
+                </div>
+                <!-- <div class="col-md-6 mb-25">
+                    <label for="formGroupExampleInput" class="color-dark fs-14 fw-500 align-center mb-10">Date</label>
+                    <div class="position-relative">
+                      <input
+                        type="text"
+                        name="date"
+                        class="form-control ih-medium ip-light radius-xs b-light px-15"
+                        id="datepicker8"
+                        placeholder="Date"
+                      />
+                    </div>
+                  </div> -->
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >From</label
+                  >
+                  <input
+                    type="text"
+                    name="shift_from"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="From"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >To</label
+                  >
+                  <input
+                    type="text"
+                    name="shift_to"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="To"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Transportation Type
+                  </label>
+                  <div class="col-md-12 d-flex">
+                    <div class="col-xxl-2 mb-3">
+                      <div class="radio-theme-default custom-radio">
+                        <input
+                          class="radio"
+                          type="radio"
+                          name="transport_type"
+                          value="part load"
+                          id="radio-un2"
+                        />
+                        <label for="radio-un2">
+                          <span class="radio-text">Part Load</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-xxl-2 mb-3">
+                      <div class="radio-theme-default custom-radio">
+                        <input
+                          class="radio"
+                          type="radio"
+                          name="transport_type"
+                          value="full load"
+                          id="radio-un4"
+                        />
+                        <label for="radio-un4">
+                          <span class="radio-text">Full Load</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-xxl-2 mb-3">
+                      <div class="radio-theme-default custom-radio">
+                        <input
+                          class="radio"
+                          type="radio"
+                          name="transport_type"
+                          value="nill"
+                          id="radio-2"
+                        />
+                        <label for="radio-2">
+                          <span class="radio-text">Nill</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Transportation Charges
+                  </label>
+                  <input
+                    type="text"
+                    name="transport_charge"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Transportation Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Packing Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="packing_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Packing Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Unpacking Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="unpacking_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Unpacking Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Loading Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="loading_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Loading Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Unloading Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="unloading_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Unloading Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Car Transportation inclusive</label
+                  >
+                  <input
+                    type="text"
+                    name="car_charge"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Car Transportation inclusive Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Warehouse Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="warehouse_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Warehouse Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >St. Charges</label
+                  >
+                  <input
+                    type="text"
+                    name="st_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter St. Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Mathadi Union & Carpenter</label
+                  >
+                  <input
+                    type="text"
+                    name="mathadi_charges"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Enter Mathadi Union & Carpenter Charges"
+                  />
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Token Money</label
+                  >
+                  <input
+                    type="number"
+                    name="token_amt"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    placeholder="Token Money"
+                  />
+                </div>
+                
+
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Shifting Date</label
+                  >
+                  <input
+                    type="text"
+                    name="shifting_date"
+                    class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                    id="datepicker7"
+                    placeholder="Shifting Date"
+                  />
+                </div>
+
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Service Charge</label
+                  >
+                  <div class="d-flex">
+                    <div class="col-md-2 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >%</label
+                      >
+                      <input
+                        type="number"
+                        name="service_charge"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Percentage"
+                      />
+                    </div>
+                    <div class="col-md-10 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >Type</label
+                      >
+                      <input
+                        type="text"
+                        name="service_charge_type"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Enter Type"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >Insurance</label
+                  >
+                  <div class="d-flex">
+                    <div class="col-md-2 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >%</label
+                      >
+                      <input
+                        type="number"
+                        name="insurance_per"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Percentage"
+                      />
+                    </div>
+                    <div class="col-md-10 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >Type</label
+                      >
+                      <input
+                        type="text"
+                        name="Insurance_type"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Enter Type"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >SGST</label
+                  >
+                  <div class="d-flex">
+                    <div class="col-md-2 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >%</label
+                      >
+                      <input
+                        type="number"
+                        name="sgst_per"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Percentage"
+                      />
+                    </div>
+                    <div class="col-md-10 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >Number</label
+                      >
+                      <input
+                        type="number"
+                        name="sgst_num"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-25">
+                  <label
+                    for="formGroupExampleInput"
+                    class="color-dark fs-14 fw-500 align-center mb-10"
+                    >CGST</label
+                  >
+                  <div class="d-flex">
+                    <div class="col-md-2 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >%</label
+                      >
+                      <input
+                        type="number"
+                        name="cgst_per"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Percentage"
+                      />
+                    </div>
+                    <div class="col-md-10 mb-25">
+                      <label
+                        for="formGroupExampleInput"
+                        class="color-dark fs-14 fw-500 align-center mb-10"
+                        >Number</label
+                      >
+                      <input
+                        type="number"
+                        name="cgst_num"
+                        class="form-control ih-medium ip-gray radius-xs b-light px-15"
+                        placeholder="Number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-25">
+                  <div class="layout-button mt-0">
+                    <button
+                      type="button"
+                      class="btn btn-default btn-squared btn-light px-20"
+                    >
+                      cancel
+                    </button>
+                    <button
+                      class="btn btn-primary btn-default btn-squared px-30"
+                    >
+                      save
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include("../includes/footer.ejs") %>

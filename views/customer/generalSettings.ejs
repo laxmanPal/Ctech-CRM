@@ -1,0 +1,156 @@
+<%- include("../includes/head.ejs") %> <%- include("../includes/header.ejs") %>
+    <%- include("../includes/sidebar.ejs") %>
+      <div class="contents">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="breadcrumb-main">
+                <h4 class="text-capitalize breadcrumb-title">Add New Logo</h4>
+                <div onclick="showForm()" class="action-btn btn px-15 btn-primary">
+
+                  <i class="uil uil-plus"></i>Change Setting
+                </div>
+                <div class="breadcrumb-action justify-content-center flex-wrap">
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item">
+                        <a href="#"><i class="uil uil-estate"></i>Home</a>
+                      </li>
+                      <li class="breadcrumb-item active" aria-current="page">
+                        Add New Logo
+                      </li>
+                    </ol>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="display: none" id="addLogo" class="row">
+            <div class="col-lg-12">
+              <div class="card card-Vertical card-default card-md mb-4">
+                <div class="card-body py-md-30">
+                  <form action="/customer/add-generalSettings" method="post" enctype="multipart/form-data">
+                    <div class="row">
+                      <div class="card-body pb-md-40 pt-md-30">
+                        <div class="col-md-12 mb-25">
+                          <input type="file" name="logo"
+                            class="form-control custom-file-input ip-gray radius-xs b-light px-15" id="uploadImage"
+                            onchange="PreviewImage();" />
+                        </div>
+                        <img id="uploadPreview" style="width: 100%; height: 300px" />
+                      </div>
+                      <div class="col-md-12 my-25">
+                        <label
+                          for="formGroupExampleInput"
+                          class="color-dark fs-14 fw-500 align-center mb-10"
+                          >Choose Color</label
+                        >
+                        <div class="color-picker">
+                          <div class="form-group mb-0">
+                            <div
+                              class="input-container icon-right position-relative w-100 color-light"
+                            >
+                              <input
+                                type="color"
+                                class="form-control ih-medium ip-light radius-xs b-light px-15 color-light"
+                                id="favcolor"
+                                name="color"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="layout-button mt-0">
+                          <button type="button" onclick="hideForm()"
+                            class="btn btn-default btn-squared btn-light px-20">
+                            cancel
+                          </button>
+                          <button class="btn btn-primary btn-default btn-squared px-30">
+                            save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="card card-Vertical card-default card-md mb-4">
+                <div class="card-body py-md-30 text-center">
+                  <img style="width: 70%" src="/<%= logo %>" alt="logo" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 mb-30">
+            <div class="support-ticket-system support-ticket-system--search">
+              <div class="userDatatable userDatatable--ticket userDatatable--ticket--2 mt-1">
+                <div class="table-responsive">
+                  <table class="table mb-0 table-borderless">
+                    <thead>
+                      <tr class="userDatatable-header">
+                        <th>
+                          <span class="userDatatable-title">Quotation Color</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">Invoice Color</span>
+                        </th>
+                        <th>
+                          <span class="userDatatable-title">Receipt Color</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div style="width: 200px; height: 25px; background-color: <%= color %>;" class="userDatatable-content--subject">
+                           
+                          </div>
+                        </td>
+                        <td>
+                          <div style="width: 200px; height: 25px; background-color: <%= color %>;" class="userDatatable-content--subject">
+                           
+                          </div>
+                        </td>
+                        <td>
+                          <div style="width: 200px; height: 25px; background-color: <%= color %>;" class="userDatatable-content--subject">
+                           
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%- include("../includes/footer.ejs") %>
+        <script type="text/javascript">
+          function PreviewImage() {
+            var oFReader = new FileReader();
+            oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
+
+            oFReader.onload = function (oFREvent) {
+              document.getElementById("uploadPreview").src = oFREvent.target.result;
+            };
+          }
+
+          const logoForm = document.getElementById("addLogo");
+
+
+          const showForm = () => {
+            logoForm.style.display = 'block'
+          }
+
+          const hideForm = () => {
+            logoForm.style.display = 'none'
+          }
+
+        </script>

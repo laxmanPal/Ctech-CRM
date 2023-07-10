@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        font-size: 15px;
+        font-family: "Lexend", sans-serif;
+      }
+      /* .table {
+        width: 100%;
+        margin-bottom: 0;
+        color: #212529;
+      } */
+      .tableHead {
+        background-color: <%= tableHeadColor %>;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="px-5 mt-3">
+      <img
+        src="<%= logo %>"
+        class="img-fluid mb-3"
+        alt="imagename"
+        width="100%"
+        style="margin-bottom: 10px"
+      />
+      <table class="table border table-bordered">
+        <thead class="tableHead">
+          <tr>
+            <th scope="col">To : <%= client_name %></th>
+            <th scope="col">Ref No:- 1388</th>
+            <th scope="col">Date:- <%= new Date(createdAt).toISOString().replace(/T.*/,'').split('-').reverse().join('-') %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Mobile no : :- <%= client_mobile %>  </td>
+            <td>From:- <%= shift_from %> </td>
+            <td>To:- <%= shift_to %> </td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 class="mt-2">SUB: QUOTATION FOR PACKING AND MOVING</h5>
+      <h6>Dear Sir / Madam</h6>
+      <p>
+        We thank you very much for giving us an opportunity for enquiry of your
+        valued belongings. We are pleased to quote the reasonable charges given
+        below
+      </p>
+
+      <table class="table border table-bordered">
+        <thead class="tableHead">
+          <tr>
+            <th scope="col" st>Sr. No</th>
+            <th scope="col">Particulars</th>
+            <th scope="col">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Transportation Charges for...Part Load.....Door to Door</td>
+            <td>21000</td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>Packing Charges........</td>
+            <td><%= packing_charges ? packing_charges : '0' %></td>
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>Loading Charges........</td>
+            <td><%= loading_charges ? loading_charges : '0' %></td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>Unloading Charges........</td>
+            <td><%= unloading_charges ? unloading_charges : '0' %></td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>Unpacking Charges........</td>
+            <td><%= unpacking_charges ? unpacking_charges : '0' %></td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>
+              Car Transportation inclusive of loading (Insurance by party)
+            </td>
+            <td>0</td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>Warehouse Charges</td>
+            <td>0</td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>ST. Charges........</td>
+            <td>295</td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>Mathadi Union & Carpenter By Party</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>Insurance Premium declare value @....03... %</td>
+            <td>EXTRA</td>
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>Service Charge....12....%</td>
+            <td></td>
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>GSTIN: 18 %</td>
+            <td>EXTRA</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table border table-bordered">
+        <tbody>
+          <tr>
+            <td>Approximately Shifting Date :<%= shifting_date %></td>
+            <td>Token Money Rs. <%= token_amt %> /-</td>
+            <td>TOTAL: <%= totalCost %> /-</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <br>
+      <br>
+      <h6>Terms & Conditions</h6>
+      <p>
+        We do not undertake Electrical, Carpentry & plumber job. We will provide
+        on the basis of availability and will be charged extra
+      </p>
+
+      <div class="col-12">
+        <ol class="list-group">
+          <li>
+            We or our agent shall be exempted from any kind of loss damage done
+            due to accident, pilferage, fire rain, collision or any other road.
+            Ricer hazard or any natural calamity. So to avoid loss or damage or
+            damage we advise you to insure your consignment covering covering
+            all risk.
+          </li>
+          <li>
+            Please be mooted while carrier risk, no individual policy/receipt,
+            from insurance company, will be given.
+          </li>
+          <li>. Payment should be made in SM Logistic Packers and Movers</li>
+          <li>
+            If requires we also provide STORAGE FACILITY to our customers a very
+            nominal charge i.e. Rs.150/-per day, But Loading, unloading, and
+            local Delivery will be charge extra
+          </li>
+          <li>
+            We would be thankful, if you could give us point intimation of 3-4
+            days in advance to start the packing of your valued articles.
+          </li>
+        </ol>
+      </div>
+      <br />
+      <h6>
+        Note: PLEASE KEEP Your Cash/ Jewelry Etc. in your Lock/ Safe custody
+      </h6>
+      <br />
+    </div>
+   
+      <div class="row pt-5 px-5">
+        <div class="col"><b>Customer Signature</b></div>
+        <div class="col" style="text-align: center">
+          <b>Powered By Stepinhost.com</b>
+        </div>
+        <div class="col" style="text-align: right">
+          <b>Marketing Executive</b>
+        </div>
+      </div>
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
